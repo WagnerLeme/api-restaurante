@@ -1,6 +1,7 @@
 import express from "express";
 import type { Express } from "express";
 import cors from "cors";
+import routes from "./routes.js";
 
 class App {
     public server: Express;
@@ -18,7 +19,7 @@ class App {
     }
 
     private routes(): void {
-
+        this.server.use("/api/v1", routes);
     }
 }
 
