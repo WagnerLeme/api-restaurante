@@ -16,6 +16,13 @@ const categorySchema = new Schema<ICategory>(
         active: {
             type: Boolean,
             default: true,
-        }
+        },
+    },
+    {
+        timestamps: true,
     }
 );
+
+const Category = mongoose.model<ICategory>('Category', categorySchema);
+
+export default Category;
