@@ -28,6 +28,27 @@ class CategoryService {
 
         return category;
     }
+
+    public async findAll(){
+        return await Category.find();
+    }
+
+    public async findByIdService(id:string){
+        return await Category.findById(id); 
+    }
+
+    public async update(id: string, data:IUpdateCategoryDTO){
+        return await Category.findByIdAndUpdate(id, data, {
+            returnDocument: 'after',
+            runValidators: true,
+        });
+    }
+
+    public async delete(id: string){
+        return await Category.findByIdAndDelete(id);
+    }
+    
+
 }
 
 export default new CategoryService;
